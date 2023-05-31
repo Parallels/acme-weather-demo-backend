@@ -11,6 +11,7 @@ import (
 	"github.com/Parallels/acme-weather-demo-backend/entities"
 	"github.com/Parallels/acme-weather-demo-backend/services"
 	"github.com/go-resty/resty/v2"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 )
@@ -110,6 +111,7 @@ func main() {
 	if port == "" {
 		port = "5000"
 	}
+
 	log.Printf("Listening on port %s", port)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), router))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), handlers.CORS()(router)))
 }

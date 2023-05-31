@@ -21,6 +21,8 @@ func (s *IconService) GetIconURL(os, icon string) ([]byte, error) {
 		iconPath = "./images/highres/" + icon + ".png"
 	case "ios":
 		iconPath = "./images/highres/" + icon + ".png"
+	case "web":
+		iconPath = "./images/highres/" + icon + ".png"
 	}
 
 	if iconPath == "" {
